@@ -1,4 +1,4 @@
 - Getting Started
 
   - [Home](/ "JBLab Bioinformatics Wiki")
-  - [Conda Setup](conda.md)
+  - [Conda - A Recipe for Reproducible Research](conda.md)
