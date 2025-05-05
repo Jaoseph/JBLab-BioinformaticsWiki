@@ -58,7 +58,7 @@ You don't *need* to.
 
 2. It makes your work **reproducible** and anyone using the same kitchen can cook the **same dish** (aka produce the same results).
 
-> *Look at you, what a good scientist :)*
+> *Look at you, what a good researcher* 😉
 
 ---
 
@@ -100,17 +100,21 @@ It’s:
 
 #### 1) Go to your home directory *(i.e. your house)*
 
-`cd ~`
-
+```powershell
+cd ~
+```
 #### 1) Start by downloading it Miniforge App from the internet
-
-`wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh` 
+```powershell
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+```
 
 *Works on the HPC but not CRUK local laptops*
 
 #### 2) Install the downloaded Miniforge
 
-`bash Miniforge3-Linux-x86_64.sh`
+```powershell
+bash Miniforge3-Linux-x86_64.sh
+```
 
 Note: It will pop-up saying "Miniforge3 will now be installed into this location: /Users/{YOUR CRUK ID}/miniforge3". Just accept your default location fate.
 
@@ -118,17 +122,22 @@ Note: It will pop-up saying "Miniforge3 will now be installed into this location
 
 After you finish installing, you can delete the installer. Makes your working space just cleaner (please do your chores)
 
-`rm Miniforge3-Linux-x86_64.sh`
+```powershell
+rm Miniforge3-Linux-x86_64.sh
+```
 
 #### 4) INITIATE MINIFORGE
 
-`conda init` 
+```powershell
+conda init
+```
 
 #### 5) Go back to your scratch
 
-`cd /mnt/scratchc/jblab/{directory_name}/`
-
-*for example: replace {directory_name} with chong02 or middle01*
+```powershell
+cd /mnt/scratchc/jblab/{directory_name}/
+```
+For example: replace {directory_name} with chong02 or middle01
 
 
 #### 🎉🎉 YOU'VE INSTALLED YOUR KITCHEN MANAGER 🎉🎉 
@@ -139,5 +148,5 @@ Let's start building your dream kitchen now.
 
 ### 
 
-
+##### `Coming soon, Work in progress 👷‍♂️`
 

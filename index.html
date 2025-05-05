@@ -17,14 +17,20 @@
       name: 'JBLab Bioinformatics Wiki',
       repo: 'https://github.com/Jaoseph/JBLab-BioinformaticsWiki',
       loadSidebar: true,
-      subMaxLevel: 2,
+      subMaxLevel: 1,
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      copyCode: {
+        buttonText: 'Copy to clipboard',
+        errorText: 'Error',
+        successText: 'Copied'
       }
-    }
+    };
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 </body>
 
 </html>
