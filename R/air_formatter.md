@@ -57,11 +57,24 @@ Next, we will look to configure your RStudio to run AIR
 
 - Once External has been selected, under `Reformat command`, paste the path to AIR you had previously copied in **Step 2**.
 
+- Click `Apply`
+
 - Next, select the `Saving` tab and check the `Reformat documents on save`
 
-- Click `apply` and `ok` and restart RStudio
+- Click `Apply` and `OK` and restart RStudio
+
+
 
 ## **Using AIR in RStudio**
 
+Two ways of using AIR
 
-##### `Coming soon, Work in progress 👷‍♂️`
+##### - As you work
+
+Highlight your code and run `ctrl+shift+A`
+
+##### - When you save
+
+Hit `ctrl+shift+s` to save. AIR should automatically re-format your code.
+
+> Your script is now shareable! 

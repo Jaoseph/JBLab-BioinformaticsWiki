@@ -16,5 +16,7 @@ Here you'll find instructions and tips for:
 - [Conda Setup](HPC/conda.md)
 - [Transferring Files](HPC/transfer_files.md)
 - [Installing Packages](installing_packages.md)
+- [Accessing HPC and JBLab servers](access_hpc_servers.md)
+- [Unix Command Cheatsheet](HPC/unix_commands.md)
 
 ---

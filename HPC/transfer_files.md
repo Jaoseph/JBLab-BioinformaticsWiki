@@ -1,4 +1,4 @@
-# 🛰️ Transferring Files - Cluster EDITION
+# Transferring Files - Cluster EDITION
 
 ##### *"Whether you’re finding or moving plots, scripts, data files, navigating these between these can feel like untangling old Christmas lights.*
 
@@ -13,6 +13,7 @@ You’ll often be transferring between **three main locations**:
 | `Local machine`   | Work Laptop or One-drive (e.g. **one-drive**)
 | `HPC cluster`     | The compute cluster (e.g. **clust1-sub-1**)
 | `Institute Drive` | Shared institute storage (e.g. **I-drive/nas-data**)
+| `FTP server`      | File Transfer Protocol (e.g. **ftpserver**)
 
 
 Depending on your specific needs, you might:
