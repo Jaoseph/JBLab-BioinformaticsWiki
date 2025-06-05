@@ -6,11 +6,11 @@ Use the FTP server to share files **with external collaborators** (e.g. non-CRUK
 
 ## 📁 FTP Server Details
 
-| Field       | Value                       |
-|-------------|-----------------------------|
-| **Host**    | `ftp2.cruk.cam.ac.uk`       |
-| **Protocol**| FTPS (Explicit SSL/TLS)     |
-| **Username**| `jblabftp`                  |
+| Field       | Value                                      |
+|-------------|--------------------------------------------|
+| **Host**    | `ftp2.cruk.cam.ac.uk`                      |
+| **Protocol**| FTPS (Explicit SSL/TLS)                    |
+| **Username**| _Request username from bioinformatician_   |
 | **Password**| _Request password from bioinformatician_   |
 
 ---
@@ -21,7 +21,7 @@ Use the FTP server to share files **with external collaborators** (e.g. non-CRUK
 
 ```bash
 lftp -e "put -O /target/folder /path/to/local_file.txt; bye" \
--u jblabftp ftp2.cruk.cam.ac.uk
+-u Request username from bioinformatician ftp2.cruk.cam.ac.uk
 ```
 
 ## Option 2: Auto-login Set-up and Upload Bam Files via Batch Script
@@ -36,8 +36,8 @@ vim ~/.netrc
 
 ```bash
 machine ftp2.cruk.cam.ac.uk
-login jblabftp
-password {Request password from bioinformatician}
+login Request username from bioinformatician
+password Request password from bioinformatician]
 ```
 
 ### Secure the file (given that this is sensitive information)
@@ -87,7 +87,7 @@ done
 | Field       | Value                                      |
 |-------------|--------------------------------------------|
 | **Host**    | `ftp2.cruk.cam.ac.uk`                      |
-| **Username**| `jblabftp`                                 |
+| **Username**| _Request username from bioinformatician_   |
 | **Password**| _Request password from bioinformatician_   |
 | **Port**    | Leave Blank                                |
 
