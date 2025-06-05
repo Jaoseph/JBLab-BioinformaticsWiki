@@ -71,7 +71,7 @@ ssh clust1-sub-1
 Then, enter your CRUK password.
 
 <video width="1200" controls>
-  <source src="../videos/access_hpc_servers/basic_hpc_login.mp4" type="video/mp4">
+  <source src="https://jaoseph.github.io/JBLab-BioinformaticsWiki/videos/access_hpc_servers/basic_hpc_login.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
