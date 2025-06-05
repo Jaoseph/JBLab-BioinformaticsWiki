@@ -40,6 +40,11 @@ ssh jblab-srv003
 
 Then, enter your CRUK password.
 
+<video width="1200" controls>
+  <source src="../videos/access_hpc_servers/basic_jblabserver_login.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 > 👍 BOOM! You're in!
 
 ## Institution-wide High Performance Cluster (HPC) servers
@@ -63,7 +68,7 @@ ssh clust1-sub-1
 
 Then, enter your CRUK password.
 
-<video width="600" controls>
+<video width="1200" controls>
   <source src="../videos/access_hpc_servers/basic_hpc_login.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
