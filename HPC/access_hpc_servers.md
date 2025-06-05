@@ -44,7 +44,7 @@ Then, enter your CRUK password.
 
 <iframe 
   src="https://jaoseph.github.io/JBLab-BioinformaticsWiki/videos/access_hpc_servers/basic_jblabserver_login.mp4"
-  width="1000" 
+  width="800" 
   height="600"
   frameborder="0"
   allowfullscreen
@@ -75,7 +75,7 @@ Then, enter your CRUK password.
 
 <iframe 
   src="https://jaoseph.github.io/JBLab-BioinformaticsWiki/videos/access_hpc_servers/basic_hpc_login.mp4"
-  width="1000" 
+  width="800" 
   height="600"
   frameborder="0"
   allowfullscreen
