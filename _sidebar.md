@@ -10,4 +10,5 @@
 - [R Guides](R/index.md)
   - [AIR, **A**nother **I**ndenter for **R**](R/air_formatter.md)
 
-- [Miscellaneous Guides](miscellaneous/ftpserver.md)
+- [Miscellaneous Guides](miscellaneous/index.md)
+  - [Accessing FTP server](miscellaneous/ftpserver.md)

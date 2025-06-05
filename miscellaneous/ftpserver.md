@@ -2,6 +2,9 @@
 
 Use the FTP server to share files **with external collaborators** (e.g. non-CRUK partners).
 
+## ⚠️ Not Sure If You Should Use FTP?⚠️ 
+Ask your supervisor or a senior lab member. 
+
 ---
 
 ## 📁 FTP Server Details

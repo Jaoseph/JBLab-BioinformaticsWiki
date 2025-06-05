@@ -1,22 +1,14 @@
 # Miscellaneous Guides
 
-Welcome to the **JBLab miscellaneous resource hub**, your go-to guide for setting up and working efficiently on the CRUK High Performance Computing cluster.
+Welcome to the **JBLab miscellaneous resource hub**, your go-to guide for miscellaneous bioinformatics documentation
 
 Here you'll find instructions and tips for:
 
-- Setting up Conda environments  
-- Transferring files between local and remote machines  
-- Secure server access (e.g., SSH keys)  
-- Common pitfalls and best practices
+- Accessing and using the CRUK CI File Transfer Protocol (FTP) server
 
 ---
 
 ### Available Guides
 
-- [Conda Setup](HPC/conda.md)
-- [Transferring Files](HPC/transfer_files.md)
-- [Installing Packages](installing_packages.md)
-- [Accessing HPC and JBLab servers](access_hpc_servers.md)
-- [Unix Command Cheatsheet](HPC/unix_commands.md)
+- [Accessing FTP server](miscellaneous/ftpserver.md)
 
----
