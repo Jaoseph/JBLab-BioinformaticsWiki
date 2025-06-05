@@ -42,10 +42,13 @@ ssh jblab-srv003
 
 Then, enter your CRUK password.
 
-<video width="1200" controls>
-  <source src="../videos/access_hpc_servers/basic_jblabserver_login.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<iframe 
+  src="https://jaoseph.github.io/JBLab-BioinformaticsWiki/videos/access_hpc_servers/basic_jblabserver_login.mp4"
+  width="1000" 
+  height="600"
+  frameborder="0"
+  allowfullscreen
+></iframe>
 
 > 👍 BOOM! You're in!
 
@@ -70,12 +73,13 @@ ssh clust1-sub-1
 
 Then, enter your CRUK password.
 
-<div id="hpc-video" style="text-align: center;">
-  <video width="1000" controls>
-    <source src="https://jaoseph.github.io/JBLab-BioinformaticsWiki/videos/access_hpc_servers/basic_hpc_login.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+<iframe 
+  src="https://jaoseph.github.io/JBLab-BioinformaticsWiki/videos/access_hpc_servers/basic_hpc_login.mp4"
+  width="1000" 
+  height="600"
+  frameborder="0"
+  allowfullscreen
+></iframe>
 
 > 👍 BOOM! You're in!
 
