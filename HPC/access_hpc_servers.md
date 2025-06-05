@@ -17,7 +17,7 @@ This section will cover:
 ---
 
 ## If you are **outside of the institute's internet**, activate your VPN by following these steps:
-> !! REQUIRED !!
+> !!! REQUIRED !!!
 
 
 - Click on the control panel on the bottom right corner ( *where you see your wifi, sound, battery* )
@@ -70,10 +70,12 @@ ssh clust1-sub-1
 
 Then, enter your CRUK password.
 
-<video width="1200" controls>
-  <source src="../videos/access_hpc_servers/basic_hpc_login.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<div id="hpc-video" style="text-align: center;">
+  <video width="1000" controls>
+    <source src="https://jaoseph.github.io/JBLab-BioinformaticsWiki/videos/access_hpc_servers/basic_hpc_login.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 > 👍 BOOM! You're in!
 
