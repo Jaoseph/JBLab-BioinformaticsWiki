@@ -70,13 +70,10 @@ ssh clust1-sub-1
 
 Then, enter your CRUK password.
 
-<iframe 
-  src="https://jaoseph.github.io/JBLab-BioinformaticsWiki/videos/access_hpc_servers/basic_hpc_login.mp4"
-  width="1000" 
-  height="600"
-  frameborder="0"
-  allowfullscreen
-></iframe>
+<video width="1200" controls>
+  <source src="../videos/access_hpc_servers/basic_hpc_login.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 > 👍 BOOM! You're in!
 
