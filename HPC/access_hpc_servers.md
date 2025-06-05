@@ -13,6 +13,17 @@ This section will cover:
 - (Potentially) SSH config set up
 - Potential Troubleshooting issues
 
+
+---
+
+## If you are **outside of the institute's internet**, activate your VPN by following these steps:
+
+- Click on the control panel on the bottom right corner ( *where you see your wifi, sound, battery* )
+- Click `VPN`
+- Click `CRI VPN` and `Connect`
+- Type in your `CRUK password` and click `Connect`
+
+
 --- 
 
 ## JBLab Servers
@@ -42,14 +53,7 @@ For HPC access → `Please kindly see the IT department to set up as a user on t
 
 ### Basic HPC Login
 
-#### 0.5) If you are **outside of the institute's internet**, activate your VPN by following these steps:
-- Click on the control panel on the bottom right corner ( *where you see your wifi, sound, battery* )
-- Click `VPN`
-- Click `CRI VPN` and `Connect`
-- Type in your `CRUK password` and click `Connect`
-
-
-#### 1) Enter the HPC Cluster on the Command Line 
+#### Enter the HPC Cluster on the Command Line 
 
 Open Windows Powershell and enter the command:
 
@@ -58,6 +62,11 @@ ssh clust1-sub-1
 ```
 
 Then, enter your CRUK password.
+
+<video width="600" controls>
+  <source src="../videos/access_hpc_servers/basic_hpc_login.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 > 👍 BOOM! You're in!
 
