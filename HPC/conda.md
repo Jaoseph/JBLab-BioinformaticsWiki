@@ -1,6 +1,6 @@
 # Conda - A Recipe for Reproducible Research
 
-###### *"Working without Conda is like baking without measuring cups."* Sure, you can do it, but don’t expect it to turn out the same twice.
+##### *"Working without Conda is like baking without measuring cups."* Sure, you can do it, but don’t expect it to turn out the same twice.
 
 ---
 

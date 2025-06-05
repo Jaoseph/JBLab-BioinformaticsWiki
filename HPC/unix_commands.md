@@ -1,6 +1,6 @@
 # Unix Command Cheatsheet
 
-_A beginner-friendly guide to basic Unix commands for bioinformatics_
+##### _A beginner-friendly guide to basic Unix commands for bioinformatics_
 
 --- 
 

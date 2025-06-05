@@ -1,6 +1,6 @@
 # Accessing JBLab Servers and HPC
 
-*Coming soon — a quickstart guide to connecting to the cluster and gateway nodes*
+##### *Coming soon — a quickstart guide to connecting to the cluster and gateway nodes*
 
 --- 
 
