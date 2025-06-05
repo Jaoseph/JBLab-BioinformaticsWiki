@@ -16,7 +16,7 @@ This section will cover:
 
 ---
 
-## If you are **outside of the institute's internet**, activate your VPN by following these steps:
+## If you are **outside of the institute's internet**, activate your VPN (REQUIRED) by following these steps:
 
 - Click on the control panel on the bottom right corner ( *where you see your wifi, sound, battery* )
 - Click `VPN`
