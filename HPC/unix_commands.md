@@ -175,6 +175,7 @@ Make sure you're in the correct directory or provide the full path to the script
 
 | Task | Command | Options/Notes |
 |------|---------|---------------|
+| Clear terminal | `clear` | Clears the terminal screen (works in most shells) |
 | View file permissions | `ls -l` | Displays permissions, ownership, size, and timestamp. The string on the left (e.g. `-rw-r--r--`) shows who can read/write/execute. |
 | Make a file executable | `chmod +x filename`| Adds executable permissions for the user (you). Required to run .sh scripts |
 | Set exact permissions numerically | `chmod 755 filename` | 7 = read+write+execute, 5 = read+execute. (4 = read) So this makes it executable for all but only writable by you. |
