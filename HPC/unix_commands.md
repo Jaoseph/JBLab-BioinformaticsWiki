@@ -66,7 +66,7 @@ Understanding these common errors can save you hours of confusion!
 
 ## Understanding Slashes in Paths
 
-In Unix, the slash / is used to separate folders and files in paths. But where you place it can change what the path means:
+In Unix, the slash `/` is used to separate folders and files in paths. But where you place it can change what the path means:
 
 | Usage | Meaning | Example |
 |-------|---------|---------|
