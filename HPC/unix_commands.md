@@ -32,6 +32,21 @@ This runs the `ls` command with `-l` (long listing) and `-h` (human-readable fil
 
 ---
 
+## Common Unix / computation terms dictionary
+
+| Term | Meaning / Equivalent | Example |
+|------|-----------------------|---------|
+| Terminal | The command-line interface where you type Unix commands | |
+| Directory | Folder | `jblab/` |
+| Path | Location of a file or folder | `scratchc/jblab/` |
+| Absolute path | Full path from the root directory (starts with `/`) | `/scratchc/jblab/chong02/snakemake-illumina-alignment/` |
+| Relative path | Path relative to your current location | If you're in `jblab/`, then `chong02/snakemake-illumina-alignment/` |
+| Script | A file containing a list of Unix or R commands | `disk_usage.sh`, `run_pipeline.R` |
+| Home directory | Your personal root folder | `~` or `/home/chong02/` |
+| Parent directory | The folder above the current one | `..` |
+
+---
+
 ## Understanding Slashes in Paths
 
 In Unix, the slash / is used to separate folders and files in paths. But where you place it can change what the path means:
@@ -85,21 +100,6 @@ cp -r mydirectory backup/             # copies the whole `mydirectory` directory
 cp -r mydirectory/ backup/            # copies the **CONTENTS** of `mydirectory` into `backup/`, not the folder itself
 rsync -av mydirectory backup/         # syncs the whole `mydirectory` directory
 rsync -av mydirectory/ backup/        # syncs **CONTENTS** of `mydirectory`, not the folder itself
-
----
-
-## Common Unix / computation terms dictionary
-
-| Term | Meaning / Equivalent | Example |
-|------|-----------------------|---------|
-| Terminal | The command-line interface where you type Unix commands | |
-| Directory | Folder | `jblab/` |
-| Path | Location of a file or folder | `scratchc/jblab/` |
-| Absolute path | Full path from the root directory (starts with `/`) | `/scratchc/jblab/chong02/snakemake-illumina-alignment/` |
-| Relative path | Path relative to your current location | If you're in `jblab/`, then `chong02/snakemake-illumina-alignment/` |
-| Script | A file containing a list of Unix or R commands | `disk_usage.sh`, `run_pipeline.R` |
-| Home directory | Your personal root folder | `~` or `/home/chong02/` |
-| Parent directory | The folder above the current one | `..` |
 
 ---
 
