@@ -188,3 +188,4 @@ This means that:
 - You can read and write
 - Everyone else can only read
 
+---
