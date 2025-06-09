@@ -144,18 +144,16 @@ ls -l filename
 
 You will see an output as such:
 
-```bash
--rw-r--r--
-```
+`-rw-r--r--`
 
-The permission string is interpreted in *triplets* as follows:
+The permission string is interpreted in **triplets** as follows:
 
 | Position | Meaning | Example:
 |------------|--------|--------|
 | 1st char | File type (`-` = file, `d` = directory) | `-` means it's a regular file |
-| 2-4 | *Owner (you)* permissions | rwx → read, write, and execute |
-| 5-7 | *Group (Brenton Group)* permissions | r-x → read and execute |
-| 8-10 | *Others (everyone else)* permissions | r-- → read only |
+| 2-4 | **Owner (you)** permissions | rwx → read, write, and execute |
+| 5-7 | **Group (Brenton Group)** permissions | r-x → read and execute |
+| 8-10 | **Others (everyone else)** permissions | r-- → read only |
 
 Each permission type is represented by a corresponding letter and number:
 
