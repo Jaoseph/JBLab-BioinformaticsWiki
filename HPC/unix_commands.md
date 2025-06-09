@@ -112,8 +112,6 @@ Make sure you're in the correct directory or provide the full path to the script
 > ⚠️ Important :
     Make sure you're in the correct directory or provide the full path to the script.**
 
-
-
 ---
 
 ## Utility Commands
@@ -123,3 +121,70 @@ Make sure you're in the correct directory or provide the full path to the script
 | View the manual/help for a command | `man [command]` | Opens the manual page for the command, including all optuons and examples. Press q to quit.
 | View the manual/help for a command | `command --help` | Displays a short help message explaining how to use the command, its options, and arguments. Often quicker and easier to read than `man`. Not available for every command, but works for most modern tools. |
 | Find the full path of a command | `which [command]` | Shows the location of the executable that will run when you type the command. E.g., `which python` might return `/usr/bin/python`. |
+
+---
+
+
+## File Permissions
+
+| Task | Command | Options/Notes |
+|------|---------|---------------|
+| View file permissions | `ls -l` | Displays permissions, ownership, size, and timestamp. The string on the left (e.g. `-rw-r--r--`) shows who can read/write/execute. |
+| Make a file executable | `chmod +x filename`| Adds executable permissions for the user (you). Required to run .sh scripts |
+| Set exact permissions numerically | `chmod 755 filename` | 7 = read+write+execute, 5 = read+execute. (4 = read) So this makes it executable for all but only writable by you. |
+
+
+### Quick Reference: Permission String and Codes
+
+When you run:
+
+```bash
+ls -l filename
+```
+
+You will see an output as such:
+
+```bash
+-rw-r--r--
+```
+
+The permission string is interpreted in *triplets* as follows:
+
+| Position | Meaning | Example:
+|------------|--------|--------|
+| 1st char | File type (`-` = file, `d` = directory) | `-` means it's a regular file |
+| 2-4 | *Owner (you)* permissions | rwx → read, write, and execute |
+| 5-7 | *Group (Brenton Group)* permissions | r-x → read and execute |
+| 8-10 | *Others (everyone else)* permissions | r-- → read only |
+
+Each permission type is represented by a corresponding letter and number:
+
+| Permission | Value |
+|------------|--------|
+| `r` (read) | 4 |
+| `w` (write) | 2 |
+| `x` (execute) | 1 |
+| `-` (none) | 0 |
+
+To convert a permission string to number (for `chmod`), simply sum the values in each group
+
+Example: 
+
+ `-rw-r--r--` 
+
+| Who | Symbol |
+|------------|--------|
+| User | rw- | 4 + 2 = 6
+| Group | r-- | 4 + 0 = 4
+| Others | r-- | 4 + 0 = 4
+
+So, `-rw-r--r--` → 
+
+```bash
+chmod 644 filename
+```
+
+This means that:
+- You can read and write
+- Everyone else can only read
+
