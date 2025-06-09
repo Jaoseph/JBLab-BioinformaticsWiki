@@ -28,6 +28,8 @@ Ask your supervisor or a senior lab member.
 lftp -u username ftp2.cruk.cam.ac.uk
 ```
 
+→ Note: If you have set up a .netrc (see below), you do not need to enter the password
+
 ## Option 1: Quick Transfer via Command Line 
 
 ### 🔼 Upload a File 
