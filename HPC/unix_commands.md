@@ -32,6 +32,62 @@ This runs the `ls` command with `-l` (long listing) and `-h` (human-readable fil
 
 ---
 
+## Understanding Slashes in Paths
+
+In Unix, the slash / is used to separate folders and files in paths. But where you place it can change what the path means:
+
+| Usage | Meaning | Example |
+|-------|---------|---------|
+|`/` at the start | Means you are using an absolute path, starting from the root of the system | /scratchc/jblab/chong02/snakemake-illumina-alignment/workflow/scripts/download_SLX.sh |
+|`/` at the end | Optional, denotes a directory, but can help with clarity in tools like `cd`, `cp`, `rsync` | cd mydirectory (makes it clear mydirectory/ is a directory) |
+|No `/` at the start | A relative path, means "start from the directory i am in" | scripts/download_SLX.sh means go into scripts directory and run download_SLX.sh |
+
+
+### Summary:
+
+- Use a **Leading** `/` when you are giving the full absolute path startin from the root (`/`)
+- Use a **Trailing** `/` when you want to make it extra clear that you are referring to a folder (Helps especially with `cd`, `cp`, and `rsync`). 
+    - A good habit in my opinion.
+- You don't need a trailing `/` for filenames
+- Never use `/` inside a filename as it is a separator for directory structure, not part of the name
+
+
+### When `/` does not matters.
+
+```bash
+cd mydirectory
+cd mydirectory/
+```
+
+These two are effectively the same, they take you into `mydirectory`. The trailing slash `/` is optional and mostly stylistic for `cd`
+
+### When `/` matters.
+
+```bash
+cp -r mydirectory backup/
+```
+→ Copies the entire `mydirectory` directory into `backup/`
+
+```bash
+cp -r mydirectory/ backup/
+```
+→ Copies only the contents of `mydirectory`, not the folder itself
+
+### Example use cases
+
+cd /home/user/project/        # absolute path to a directory
+cd project/                   # relative path
+ls /etc/passwd                # absolute path to a file
+ls data/results.txt           # relative path to a file
+bash scripts/run.sh           # run a script in a subdirectory
+bash /home/user/scripts/run.sh  # run script using full path
+cp -r mydirectory backup/             # copies the whole `mydirectory` directory into `backup/`
+cp -r mydirectory/ backup/            # copies the **CONTENTS** of `mydirectory` into `backup/`, not the folder itself
+rsync -av mydirectory backup/         # syncs the whole `mydirectory` directory
+rsync -av mydirectory/ backup/        # syncs **CONTENTS** of `mydirectory`, not the folder itself
+
+---
+
 ## Common Unix / computation terms dictionary
 
 | Term | Meaning / Equivalent | Example |
@@ -59,18 +115,7 @@ Understanding these common errors can save you hours of confusion!
 | Running `bash script.sh` from the wrong directory | The shell looks for `script.sh` in the current folder, and will return `No such file or directory` if it’s not there | Check if you are currently in the directory which contains the `script.sh` or provide the absolute path to the `bash /full/path/to/script.sh` |
 | Typing `cd folder/file.txt` | `cd` is for directories only, not files | Use `cd folder/`, then `ls` to view files within your current directory |
 | Using `rm` without checking | You can accidentally delete important files | Always use `ls` first, or `rm -i` to confirm |
-
-
---- 
-
-## Navigation commands
-
-| Task | Command | Options/Notes |
-|------|---------|-------|
-| Print current directory within the file system | `pwd` | Shows where you are in the file system |
-| List files | `ls` | Common options: `-l` (long format), `-a` (show hidden), `-h` (human-readable sizes), `-r` (reverse order), `-t` (sort by modified time) |
-| Change directory | `cd directoryname/` | Use `cd ..` to move up one level |
-| Autocomplete paths | Press `Tab` | Autocompletes directory or file names based on what you've typed so far. If multiple matches exist, pressing Tab twice will show you all options. Keeps autocompleting until ambiguity is reached |
+| Using `rm` without checking | You can accidentally delete important files | Always use `ls` first, or `rm -i` to confirm |
 
 ---
 
