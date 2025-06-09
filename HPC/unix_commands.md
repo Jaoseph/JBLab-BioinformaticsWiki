@@ -45,6 +45,23 @@ This runs the `ls` command with `-l` (long listing) and `-h` (human-readable fil
 | Home directory | Your personal root folder | `~` or `/home/chong02/` |
 | Parent directory | The folder above the current one | `..` |
 
+
+---
+
+## ⚠️ Common Beginner Mistakes
+
+Understanding these common errors can save you hours of confusion!
+
+| Mistake | Why it’s wrong | What to do |
+|--------|----------------|----------------|
+| Forgetting spaces between the command, options, and arguments | UNIX is very **strict** with spacing, and merging them together makes it think you're calling a different (invalid) command | `ls -l` not `ls-l` |
+| Using commas or equal signs between arguments | UNIX doesn’t use `,` or `=` to separate inputs | `cp file1.txt file2.txt` not `cp=file1.txt,file2.txt` |
+| Confusing relative vs absolute paths | UNIX commands need the correct location of the file. If it’s not in your current directory, you must give a path to it — UNIX won’t search for it automatically | Use a relative path like /scripts/script.sh, or an absolute path like /scratchc/jblab/chong02/scripts/script.sh
+| Running `bash script.sh` from the wrong directory | The shell looks for `script.sh` in the current folder, and will return `No such file or directory` if it’s not there | Check if you are currently in the directory which contains the `script.sh` or provide the absolute path to the `bash /full/path/to/script.sh` |
+| Typing `cd folder/file.txt` | `cd` is for directories only, not files | Use `cd folder/`, then `ls` to view files within your current directory |
+| Using `rm` without checking | You can accidentally delete important files | Always use `ls` first, or `rm -i` to confirm |
+| Using `rm` without checking | You can accidentally delete important files | Always use `ls` first, or `rm -i` to confirm |
+
 ---
 
 ## Understanding Slashes in Paths
@@ -100,22 +117,6 @@ cp -r mydirectory backup/             # copies the whole `mydirectory` directory
 cp -r mydirectory/ backup/            # copies the **CONTENTS** of `mydirectory` into `backup/`, not the folder itself
 rsync -av mydirectory backup/         # syncs the whole `mydirectory` directory
 rsync -av mydirectory/ backup/        # syncs **CONTENTS** of `mydirectory`, not the folder itself
-
----
-
-## ⚠️ Common Beginner Mistakes
-
-Understanding these common errors can save you hours of confusion!
-
-| Mistake | Why it’s wrong | What to do |
-|--------|----------------|----------------|
-| Forgetting spaces between the command, options, and arguments | UNIX is very **strict** with spacing, and merging them together makes it think you're calling a different (invalid) command | `ls -l` not `ls-l` |
-| Using commas or equal signs between arguments | UNIX doesn’t use `,` or `=` to separate inputs | `cp file1.txt file2.txt` not `cp=file1.txt,file2.txt` |
-| Confusing relative vs absolute paths | UNIX commands need the correct location of the file. If it’s not in your current directory, you must give a path to it — UNIX won’t search for it automatically | Use a relative path like /scripts/script.sh, or an absolute path like /scratchc/jblab/chong02/scripts/script.sh
-| Running `bash script.sh` from the wrong directory | The shell looks for `script.sh` in the current folder, and will return `No such file or directory` if it’s not there | Check if you are currently in the directory which contains the `script.sh` or provide the absolute path to the `bash /full/path/to/script.sh` |
-| Typing `cd folder/file.txt` | `cd` is for directories only, not files | Use `cd folder/`, then `ls` to view files within your current directory |
-| Using `rm` without checking | You can accidentally delete important files | Always use `ls` first, or `rm -i` to confirm |
-| Using `rm` without checking | You can accidentally delete important files | Always use `ls` first, or `rm -i` to confirm |
 
 ---
 
