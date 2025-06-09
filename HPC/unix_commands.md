@@ -70,9 +70,9 @@ In Unix, the slash `/` is used to separate folders and files in paths. But where
 
 | Usage | Meaning | Example |
 |-------|---------|---------|
-|`/` at the start | Means you are using an absolute path, starting from the root of the system | /scratchc/jblab/chong02/snakemake-illumina-alignment/workflow/scripts/download_SLX.sh |
-|`/` at the end | Optional, denotes a directory, but can help with clarity in tools like `cd`, `cp`, `rsync` | cd mydirectory (makes it clear mydirectory/ is a directory) |
-|No `/` at the start | A relative path, means "start from the directory i am in" | scripts/download_SLX.sh means go into scripts directory and run download_SLX.sh |
+|`/` at the start | Means you are using an absolute path, starting from the root of the system | `/scratchc/jblab/chong02/snakemake-illumina-alignment/workflow/scripts/download_SLX.sh` |
+|`/` at the end | Optional, denotes a directory, but can help with clarity in tools like `cd`, `cp`, `rsync` | `cd mydirectory` (makes it clear `mydirectory/` is a directory) |
+|No `/` at the start | A relative path, means "start from the directory i am in" | `scripts/download_SLX.sh` means go into scripts directory and run `download_SLX.sh` |
 
 
 ### Summary:
