@@ -22,6 +22,12 @@ Ask your supervisor or a senior lab member.
 
 ---
 
+## Quick assess to the FTP server command:
+
+```bash
+lftp -u username ftp2.cruk.cam.ac.uk
+```
+
 ## Option 1: Quick Transfer via Command Line 
 
 ### 🔼 Upload a File 
