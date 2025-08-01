@@ -48,7 +48,7 @@ This runs the `ls` command with `-l` (long listing) and `-h` (human-readable fil
 
 ---
 
-## ⚠️ Common Beginner Mistakes
+## Common Beginner Mistakes
 
 Understanding these common errors can save you hours of confusion!
 

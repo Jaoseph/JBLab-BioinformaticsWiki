@@ -12,3 +12,6 @@
 
 - [Miscellaneous Guides](miscellaneous/index.md)
   - [Accessing FTP server](miscellaneous/ftpserver.md)
+
+- [Computational pipelines](analysis_pipelines/index.md)
+  - [Seurat scRNA Pipeline](analysis_pipelines/seurat_scRNA_analysis.md)
