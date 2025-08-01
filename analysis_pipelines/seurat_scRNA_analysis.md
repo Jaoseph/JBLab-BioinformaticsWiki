@@ -433,5 +433,5 @@ seurat <- RunUMAP(seurat, dims = 1:30, n.neighbors = 15, min.dist = 0.01, seed.u
 DimPlot(seurat, reduction = "umap")
 ```
 
-<!-- ![DimPlotUmapClustering](plots/seurat/SITTC1/DimPlotUmapClustering.png) -->
+![DimPlotUmapClustering](../../plots/seurat/SITTC1/DimPlotUmapClustering.png)
 ![DimPlotUmapClustering](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/DimPlotUmapClustering.png)
