@@ -208,7 +208,7 @@ FeatureScatter(seurat, feature1 = "nCount_RNA", feature2 = "nFeature_RNA", pt.si
     theme(legend.position="none") +
     labs(title="Library size (nCount_RNA) vs Number of genes detected (nFeature_RNA)")
 ```
-![lib_size_vs_nfeature_SITTC1_scatterplot](../../plots/seurat/SITTC1/lib_size_vs_nfeature_SITTC1_scatterplot.png)
+![lib_size_vs_nfeature_SITTC1_scatterplot](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/lib_size_vs_nfeature_SITTC1_scatterplot.png)
 
 In the example sample SITTC1, the plot above is a scatterplot across all the single cells sequenced with the **library size (nCount_RNA) plotted against number of genes detected (non-zero expression; nFeature_RNA)**. 
 
@@ -225,7 +225,7 @@ FeatureScatter(seurat,feature1 = "nCount_RNA", feature2 = "nFeature_RNA", pt.siz
     geom_hline(yintercept = quantile(seurat$nFeature_RNA, 0.95), linetype = "dashed", color = "red")
 ```
 
-![lib_size_vs_nfeature_SITTC1_scatterplot_thresholded](../../plots/seurat/SITTC1/lib_size_vs_nfeature_SITTC1_scatterplot_with_thresholds.png)
+![lib_size_vs_nfeature_SITTC1_scatterplot_thresholded](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/lib_size_vs_nfeature_SITTC1_scatterplot_with_thresholds.png)
 
 A biologist may be more inclinced to be less stringent with these QCs thresholds as to choose a more biologically tailored threshold whereas bioinformaticians often like "cool" sounding numbers like 95th percentile and 5th percentile.
 
@@ -236,7 +236,7 @@ FeatureScatter(seurat, feature1 = "nCount_RNA", feature2 = "percent.mt", pt.size
     theme(legend.position="none") +
     labs(title="Library size (nCount_RNA) vs percentage of Mitochondrial transcripts (percent.mt)")
 ```
-![lib_size_vs_percentmt_SITTC1_scatterplot_thresholded](../../plots/seurat/SITTC1/lib_size_vs_percent_mt_SITTC1_scatterplot.png)
+![lib_size_vs_percentmt_SITTC1_scatterplot_thresholded](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/lib_size_vs_percent_mt_SITTC1_scatterplot.png)
 
 In the example sample SITTC1, the plot above is a scatterplot across all the single cells sequenced with the **library size (nCount_RNA) plotted against the percentage of transcripts belonging to mitochondrial genes (percent.mt)**.
 
@@ -247,7 +247,7 @@ FeatureScatter(seurat, feature1 = "nCount_RNA", feature2 = "percent.mt", pt.size
     geom_hline(yintercept = quantile(seurat$percent.mt, 0.95), linetype = "dashed", color = "red")
 ```
 
-![lib_size_vs_percentmt_SITTC1_scatterplot_thresholded](../../plots/seurat/SITTC1/lib_size_vs_percent_mt_SITTC1_scatterplot_with_thresholds.png)
+![lib_size_vs_percentmt_SITTC1_scatterplot_thresholded](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/lib_size_vs_percent_mt_SITTC1_scatterplot_with_thresholds.png)
 
 #### Apply Filtering
 
@@ -264,13 +264,13 @@ seurat <- subset(seurat, subset = nFeature_RNA > 2030 & nFeature_RNA < 5382 & pe
 
 In unnormalized single-cell RNA-seq data, raw counts often exhibit a strong correlation between library size (total UMi counts per cell) and the number of genes detected. This means that cells with higher sequencing depth appear to exhibit more genes as a result of technical variation. Downstream analyses will capture this library size effects where the signals and results obtained from the counts will be predominantly reflect a sequencing technical artefact.
 
-![sctransform_libsiz_genedetected](../../plots/seurat/SITTC1/sctransform_libsiz_genedetected.png)
+![sctransform_libsiz_genedetected](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/sctransform_libsiz_genedetected.png)
 
 Prior to normalization, we can see that library size is highly correlated with number of genes detected, i.e. library size increases, the number of genes increases (left). Following normalization (right), we can observe that library size and number of genes detected show a weaker correlation as a result of modelling and removing the effect of library size effect. This means that the expressions will reflect biological variability rather than sequencing depth artefacts.
 
 #### Mean-Variance Relationship
 
-![sctransform_meanvariance](../../plots/seurat/SITTC1/sctransform_meanvariance.png)
+![sctransform_meanvariance](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/sctransform_meanvariance.png)
 
 Raw counts also exhibit a strong correlation between mean and variance (variability), as genes with higher mean expression tend to have higher variance (shows more varability across the single cells), also known as **Heteroskedasticity** (left). This makes it difficult to tell whether a gene is truly variable between the cells when the variance is high between cells or the result of sequencing depth and noise as anything which increases or decreases the mean expression will result in the subsequent respective directional change in variance. Often times this violates many statistical techniques assumptions and when uncorrected, downstream analyses will be correlated with library size again, and hence the effect of library size will predominate your analyses and the results you obtain may be the strongly influenced by library size, a technical artefact rather than biological signals. Following normalization (right), we can observe that the variance no longer scales with mean expression (i.e. as mean expression increases, variance or also known as variability increases)
 
@@ -354,7 +354,7 @@ Ask Jao for **function_helpers.R** script which contains some helper scripts inc
 visualize_principal_components(seurat, pca_method = "Seurat", y_variable_to_plot = "cumvar", num_PCs = 50)
 ```
 
-![pca_screeplot](../../plots/seurat/SITTC1/pca_screeplot.png)
+![pca_screeplot](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/pca_screeplot.png)
 
 The plot shows the cummulative variance explaineed starting from PC1 to PC50, which is sorted from highest variance PC respectively. Each point on the x-axis represents a principal component and the y-axis shows you the cummulative experience.
 
@@ -384,7 +384,7 @@ These are genes which have the strongest **loadings**, meaning that their expres
 ```R
 VizDimLoadings(seurat, dims = 1:2, reduction = "pca")
 ```
-![VizDimLoadings](../../plots/seurat/SITTC1/VizDimLoadings.png)
+![VizDimLoadings](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/VizDimLoadings.png)
 
 Another way is by plotting it. 
 
@@ -395,7 +395,7 @@ Idents(seurat) <- "all"
 DimPlot(seurat, reduction = "pca", group.by = NULL)
 ```
 
-![DimPlot_PCA](../../plots/seurat/SITTC1/DimPlot_PCA.png)
+![DimPlot_PCA](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/DimPlot_PCA.png)
 
 Although PCA is useful for reducing dimensionality and visualizing large dataset, it is a linear method that maximizes variance which do not necessarily be separate biological subpopulations and clusters (e.g. two different population can share similar sets of specific say signalling pathways which is captured by a specific PC). Hence, as we continue we will use methods like **UMAP** or **t-SNE** designed for visualizing distinct groupings of cells to reveal potential underlying clusters of cells.
 
@@ -432,6 +432,4 @@ seurat <- RunUMAP(seurat, dims = 1:30, n.neighbors = 15, min.dist = 0.01, seed.u
 # Visualize the clustering on the UMAP embeddings
 DimPlot(seurat, reduction = "umap")
 ```
-
-![DimPlotUmapClustering](../../plots/seurat/SITTC1/DimPlotUmapClustering.png)
 ![DimPlotUmapClustering](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/plots/seurat/SITTC1/DimPlotUmapClustering.png)
