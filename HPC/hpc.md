@@ -44,6 +44,19 @@ The most basic use of the Job Scheduler is to run a command non-interactively (i
 
 #### Let's go through some basic job submission lingo and examples
 
+#### Slurm Key Commands
+
+
+| Command | Meaning / Equivalent | Example |
+|------|-----------------------|---------|
+| sbatch | Submit a shell script to the queue | `sbatch slurm-submit.sh` |
+| squeue | see all the jobs in the squeue (everyone) | `squeue` |
+| squeue -u USERNAME | see all the jobs in the squeue (everyone) | `squeue -u chong02` |
+| scancel JOBID | Cancel the job with the specified ID | `scancel 44347166` |
+| scancel -u USERNAME | Cancel all the jobs under your name | `scancel -u chong02` |
+| seff JOBID | Get efficiency information about your job |  |
+
+
 
 --- 
 
