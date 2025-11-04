@@ -15,7 +15,10 @@ HPC stands for **High Performance Computing** refers to the practice of aggregat
 
 ### **What are Nodes?**
 
-Nodes refer to the indiviudal computers that compose a HPC cluster, and on the cluster there will be different types of nodes for different types of tasks. 
+Nodes refer to the indiviudal computers that compose a HPC cluster, and on the cluster there will be different types of nodes for different types of tasks.
+Similar to your own laptop, each node has CPUs (processors or cores), memory (RAM) and disk space. **CPUs** are the computational tool for running programs and calculations, nd the information about the current task is stored in the computer's memory. The disk refers to all the storage which while can be local, it is common for the nodes to be connected to a shared, remote fileserver.
+
+![node](https://raw.githubusercontent.com/jaoseph/JBLab-BioinformaticsWiki/main/pictures/node_anatomy.png)
 
 #### **Login Nodes**
 When you enter into the HPC, you typically arrive at the **Login Node** which serves as the acess point to the cluster. The login node can also be referred to as *login node* and *submit node*
