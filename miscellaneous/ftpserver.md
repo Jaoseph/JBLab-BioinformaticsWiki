@@ -7,7 +7,7 @@
 Use the FTP server to share files **with external collaborators** (e.g. non-CRUK partners).
 
 ## ⚠️ Not Sure If You Should Use FTP?⚠️ 
-Ask your supervisor or a senior lab member. 
+Ask your supervisor or a senior bioinformatican lab member. 
 
 ---
 
@@ -35,7 +35,7 @@ lftp -u <username> ftp2.cruk.cam.ac.uk
 ### 🔼 Upload a File 
 
 ```bash
-lftp -e "put -O /target/folder /path/to/local_file.txt; bye" \
+lftp -e "put -O /target/ftp_folder /path/to/local_file.txt; bye" \
 -u <username> ftp2.cruk.cam.ac.uk
 ```
 
@@ -60,67 +60,88 @@ password <password>
 ```bash
 chmod 600 ~/.netrc
 ```
+This allows lftp to log in automatically.
 
-## Sample Upload Script
+## Sample Batch Upload Script
 
-```bash
-#!/bin/bash
+This is useful when sharing sequencing data such as:
 
-for dir in /mnt/nas-data/jblab/group_folders/bradle02/otta_tailor_bio_handover/{RAM-,SLX-}*; do
-  pooled_library_id=$(basename "$dir")
-  bamdir="$dir/downsampled_bams/curation"
+- BAM files
+- Bai index files 
+- Any directory containing multiple samples or files
 
-  echo "Uploading from $bamdir..."
-
-  lftp ftp2.cruk.cam.ac.uk <<EOF
-  set ftp:ssl-force true
-  set ftp:ssl-protect-data true
-  set ftp:passive-mode true
-
-  mkdir OTTA_Merridee/${pooled_library_id}
-  cd OTTA_Merridee/${pooled_library_id}
-  mkdir downsampled_bams_curation
-  cd downsampled_bams_curation
-
-  lcd $bamdir
-  mput *.bam
-  bye
-EOF
-
-done
-```
-
-## Sample Upload Script 2
+Below is a template script for uploading multiple sample directories from the local directory to a directory on the FTP server, as well as producing `md5sums.txt` which is used to verify the integrity of a file (This is required by the reciever to be able to use and open the file).
 
 ```bash
 #!/bin/bash
 
-for dir in /mnt/nas-data/jblab/group_folders/bradle02/otta_tailor_bio_handover/SLX-*; do
-  pooled_library_id=$(basename "$dir")
-  bamdir="$dir/downsampled_bams/curation"
+########################################################################################
+# Template Script for Uploading Multiple Files/Directories to an FTPS Server Using lftp
+########################################################################################
 
-  echo "Uploading from $bamdir..."
+# Local base directory containing the folders to upload
+base="/path/to/local/base_directory"
 
-  lftp -u jblabadmin ftp2.cruk.cam.ac.uk <<EOF
-  set ftp:ssl-force true
-  set ftp:ssl-protect-data true
-  set ftp:passive-mode true
+# Remote FTPS directory where files will be uploaded
+ftp_base="remote_target_directory"
 
-  lcd $bamdir
-  mput -O /nswftp01/OTTA_Merridee/${pooled_library_id}/downsampled_bams_curation *.bam
-  bye
+# Loop through each project folder (replace with your own folders)
+for project in project1 project2; do
+  
+  # Loop through each subdirectory within the project folder
+  for dir in "$base/$project"/*; do
+
+    # Skip if not a directory
+    [ -d "$dir" ] || continue
+
+    # The name of the directory being uploaded (e.g., RAM-1, SLX-12345)
+    directory_id=$(basename "$dir")
+    echo "Uploading: $directory_id"
+
+    # Generate MD5 checksums
+    md5file="$dir/md5sums.txt"
+    echo "Generating md5 checksums for $directory_id..."
+
+    files=( "$dir"/*.bam "$dir"/*.bai )
+    md5sum "${files[@]}" > "$md5file"
+
+    # Upload using lftp
+    lftp ftp2.cruk.cam.ac.uk <<EOF
+set ftp:ssl-force true
+set ftp:ssl-protect-data true
+set ftp:passive-mode true
+
+# Navigate to target remote folder
+cd $ftp_base
+
+# Create remote directory if it doesn't already exist
+mkdir $directory_id || true
+cd $directory_id
+
+# Upload all files in this folder
+lcd $dir
+mput *.bam
+mput *.bai
+put md5sums.txt
+
+bye
 EOF
 
+  done
 done
-```
-```bash
-nohup ./ftp_merridee_transfer.sh > ftp_merridee_transfer_log.txt 2>&1 &
+
 ```
 
-### The script is:
-- Looping through all RAM- and SLX- folders
-- Entering the downsampled_bams/curation subfolder
-- Uploading all .bam files to corresponding directories on the FTP server under OTTA_Merridee/
+### Running the Script with Logging
+
+Once you have written that into a `.sh` file, you can now run the following, which will 
+
+- Run the script in the background (even after you have closed the terminal or HPC server connection)
+- Generate a log file for monitoring progress:
+
+```bash
+nohup bash FTPS_upload.sh > FTPS_upload.log 2>&1 &
+```
 
 ## Option 3: Accessing through FileZilla (Graphical User interface)
 
@@ -139,28 +160,3 @@ Then drag and drop files to upload or download.
 ## Configure Default Directories for connection and download
 
 https://filezillapro.com/docs/v3/faq/how-to-configure-default-directories-for-a-connection/
-
-## Common Commands
-
-#### Remove files using wildcards
-
-```bash
-mrm *.bam 
-```
-- **mrm**: multiple remove
-- The command will match all **.bam** files in the current directory and remove (wildcards work with **mrm** unlike **rm**)
-
-#### Transfer
-
-```bash
-mirror -R [local_directory] [ftp directory]
-```
-- **mirror** syncs directories recursively
-- **-R** tells lftp to copy all the contents from specified local directory (local machine/HPC) to the ftp directory
-- This will transfer only new or updated files and skips files that are already up to date (--overwrite can be used to force)
-
-##### Example:
-
-```bash
-lftp <username> jblabadmin ftp2.cruk.cam.ac.uk -e "mirror -R /mnt/nas-data/jblab/group_folders/chong02/wildseq/SLX-14660/cellranger_counts/outs /nswftp01/wildseq_Anna/SLX-14660/cellranger_counts/outs; bye"
-```

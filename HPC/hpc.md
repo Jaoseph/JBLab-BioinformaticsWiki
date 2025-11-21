@@ -44,8 +44,6 @@ The most basic use of the Job Scheduler is to run a command non-interactively (i
 
 #### Let's go through some basic job submission lingo and examples
 
-#### Slurm Key Commands
-
 
 | Command | Meaning / Equivalent | Example |
 |------|-----------------------|---------|
@@ -54,8 +52,39 @@ The most basic use of the Job Scheduler is to run a command non-interactively (i
 | squeue -u USERNAME | see all the jobs in the squeue (everyone) | `squeue -u chong02` |
 | scancel JOBID | Cancel the job with the specified ID | `scancel 44347166` |
 | scancel -u USERNAME | Cancel all the jobs under your name | `scancel -u chong02` |
-| seff JOBID | Get efficiency information about your job |  |
 
+### How does a typical SLURM Job Submission script look like?
+
+A typical SLURM job submission script (```.sh```) file will allow for customizatio.n of your job by specifying the keyword ```#SBATCH``` followed by a slurm option. A working example for CRUK CI HPC slurm submission script looks as follows:
+
+```
+#!/bin/bash
+
+#SBATCH -J job1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=4G
+#SBATCH --time=20:00:00
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-user=jao.chong@cruk.cam.ac.uk
+#SBATCH -p general
+#SBATCH --output=logs/%x_%j.out
+#SBATCH --error=logs/%x_%j.err
+
+```
+
+
+
+| Option | Description 
+|------|-----------------------|
+| `-J` | Assigns a *name* to the job (appears in queue with squeue)  |
+| `--cpus-per-task=1` | Specifies **how many CPU cores** are allocated per task. If your job only runs one task, this is effectively the total number of cores your job gets. |
+| `--mem` | Specifies how much R**AM memory** you want your job in **gigabytes**  |
+| `--time` | Seets a **time limit** whereby the job will stop when this limit is reached |
+| `--mail-type` | SLURM will send an *email notification when the job fails* |
+| `--mail-user` | The email where by the *email notification when the job fails* will be sent to |
+| `-p` | Specifies the partition to run the job |
+| `--output` | Directs **standard output (stdout)** to a log file named after the job name (%x) and job ID (%j). |
+| `--error` | Directs **standard error (stderr)** to a seperate log file named after the job name (%x) and job ID (%j). |
 
 
 --- 
