@@ -146,7 +146,86 @@ Let's start building your dream kitchen now.
 
 ---
 
-### 
+### The common two ways to create a conda environment
 
-##### `Coming soon, Work in progress 👷‍♂️`
+Once Miniforge is installed, you can build your Conda "kitchen" environment in two common ways for each project:
+
+#### Option A: Create an environment using a config.yaml file
+
+Think of a `config.yaml` (a configuration file) as the equivalent of having a written recipe. Every single ingredient, every version written down.
+
+##### Step 1 - Create a YAML file
+
+The YAML file consists of three important sections:
+
+- **name:** - which is the name of the conda environment you will build and later reference to activate
+- **channels:** - refers to where the conda will search to look for dependencies
+- **dependencies** - refers to the packages, tools (such as python or R) you will want in your conda environment
+
+``` yaml
+name: wildseq
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - r-base=4.3
+  - r-tidyverse
+  - r-readxl
+  - bioconductor-limma 
+```
+Note: you can specify versions using `=version` as you can see for `r-base=4.3`.
+
+Furthermore, there will be additional packages that will be installed alongside the specified packages. 
+For example, in the script above, `r-tidyverse` was specified, this will alongside the `tidyverse` packages, will install packages required for tidyverse such as
+`ggplot2` automatically, even if it is not in the script.
+
+##### Step 2 - Create the environment
+
+```bash
+conda env create -f conda.yaml
+```
+
+##### Step 3 - Activate it 
+
+```bash
+conda activate wildseq
+```
+
+##### Step 4 - Update it 
+
+Importantly, as you start to install packages over time by running code periodically `conda install r-ggplot2`, the newly installed package and its dependencies
+will not be automatically updated in the conda.yaml file.
+
+There is two ways to continously update this:
+- As you periodically install dependencies, include it in a new line as such `- r-ggplot2`
+- Re-build the whole yaml file again by running 
+
+```bash
+conda env update -f conda.yaml
+```
+
+#### Option B: Create an environment directly via the Command Line
+
+The fastest way to set up a one-off enviroment will be by immediating running the following at the command line:
+
+##### Step 1 - Make a new environment
+
+```bash
+conda create -n wildseq r-base=4.3
+```
+##### Step 2 - Activate the newly created environment
+
+```bash
+conda activate wildseq
+```
+
+##### Step 3 - Add packages whenever you want
+
+```bash
+conda install -c conda-forgt -c bioconda r-tidyverse r-readxl bioconductor-limma 
+```
+
+Note here, the `-c` argument will specify the channel required to search for the tidyverse readxl and limma packages. If you are unsure about which channel,
+google it. :D
 
