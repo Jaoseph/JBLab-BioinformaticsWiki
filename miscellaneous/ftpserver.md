@@ -9,6 +9,8 @@ Use the FTP server to share files **with external collaborators** (e.g. non-CRUK
 ## ⚠️ Not Sure If You Should Use FTP?⚠️ 
 Ask your supervisor or a senior bioinformatican lab member. 
 
+**To request an account for a new collaborator, we need to email the [CRUK CI IT Helpdesk](ithelpdesk@cruk.cam.ac.uk).**
+
 ---
 
 ## 📁 FTP Server Details
